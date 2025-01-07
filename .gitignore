@@ -23,5 +23,5 @@
 hs_err_pid*
 replay_pid*
 
-target/
-WEB_INF/
+**/target/
+**/WEB_INF/
