@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="redInk" class="com.weishuning.Ink.ColorInk">
+        <property name="color" value="红色" />
+    </bean>
+    <bean id="blueInk" class="com.weishuning.Ink.ColorInk">
+        <property name="color" value="蓝色" />
+    </bean>
+
+    <bean id="grayInk" class="com.weishuning.Ink.GrayInk" />
+
+    <bean id="A4Paper" class="com.weishuning.paper.TextPaper" >
+        <property name="charPerLine" value="10" ></property>
+        <property name="linePerPage" value="12" />
+    </bean>
+
+    <bean id="B5Paper" class="com.weishuning.paper.TextPaper">
+        <property name="charPerLine" value="6" />
+        <property name="linePerPage" value="8" />
+     </bean>
+
+    <bean id="myPrinter" class="com.weishuning.printer.Printer">
+       <property name="ink" ref="redInk"/>
+        <property name="paper" ref="A4Paper"/>
+
+    </bean>
+
+
+</beans>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+        <bean id="colorInk" class="com.shilinyu.ink.ColorInk"/>
+        <bean id="greyInk" class="com.shilinyu.ink.GeryInk"/>
+        <bean id="a4Paper" class="com.shilinyu.paper.TextPaper">
+            <property name="charPerLine" value="10"/>
+            <property name="linePerPage" value="8"/>
+        </bean>
+        <bean id="b5Paper" class="com.shilinyu.paper.TextPaper">
+            <property name="charPerLine" value="6"/>
+            <property name="linePerPage" value="5"/>
+        </bean>
+        <bean id="printer" class="com.shilinyu.printer.Printer">
+            <property name="ink" ref="greyInk"/>
+            <property name="paper" ref="b5Paper"/>
+        </bean>
+
+    </beans>

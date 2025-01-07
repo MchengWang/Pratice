@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SelectAllFoodTypeServlet</servlet-name>
+    <servlet-class>com.r2007.servlet.SelectAllFoodTypeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddFoodTypeServlet</servlet-name>
+    <servlet-class>com.r2007.servlet.AddFoodTypeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>DelFoodTypeServlet</servlet-name>
+    <servlet-class>com.r2007.servlet.DelFoodTypeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UpdFoodTypeServlet</servlet-name>
+    <servlet-class>com.r2007.servlet.UpdFoodTypeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SelectFoodServlet</servlet-name>
+    <servlet-class>com.r2007.servlet.SelectFoodServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddFoodServlet</servlet-name>
+    <servlet-class>com.r2007.servlet.AddFoodServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>SelectAllFoodTypeServlet</servlet-name>
+    <url-pattern>/SelectAllFoodTypeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddFoodTypeServlet</servlet-name>
+    <url-pattern>/AddFoodTypeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelFoodTypeServlet</servlet-name>
+    <url-pattern>/DelFoodTypeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdFoodTypeServlet</servlet-name>
+    <url-pattern>/UpdFoodTypeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SelectFoodServlet</servlet-name>
+    <url-pattern>/SelectFoodServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddFoodServlet</servlet-name>
+    <url-pattern>/AddFoodServlet</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>SelectAllFoodTypeServlet</welcome-file>
+  </welcome-file-list>
+</web-app>

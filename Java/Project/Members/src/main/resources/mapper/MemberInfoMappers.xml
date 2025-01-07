@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangzihang.dao.MemberInfoDao">
+    <resultMap id="BaseResultMap" type="com.wangzihang.pojo.MemberInfo">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="memberNo" jdbcType="VARCHAR" property="memberNo" />
+        <result column="realName" jdbcType="VARCHAR" property="realName" />
+        <result column="tel" jdbcType="VARCHAR" property="tel" />
+        <result column="identityId" jdbcType="VARCHAR" property="identityId" />
+    </resultMap>
+    <sql id="BaseList">
+        id, memberNo, `realName`, tel, identityId
+    </sql>
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="BaseList" />
+        from memberInfo
+        where id = #{id}
+    </select>
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from memberInfo
+        where id = #{id}
+    </delete>
+    <insert id="insertRooms" parameterType="com.wangzihang.pojo.MemberInfo">
+        insert into memberInfo (id , memberNo , realName , tel , identityId)
+        values (null , #{memberNo} , #{realName} , #{tel} , #{identityId})
+    </insert>
+    <update id="update" parameterType="com.wangzihang.pojo.MemberInfo">
+        update memberInfo
+        set memberNo = #{memberNo},
+            `realName` = #{realName},
+            tel = #{tel},
+            identityId = #{identityId}
+        where id = #{id}
+    </update>
+    <select id="getAll" parameterType="com.wangzihang.pojo.MemberInfo" resultMap="BaseResultMap">
+        select
+        <include refid="BaseList" />
+        from memberInfo
+    </select>
+</mapper>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jsj.dao.BookService">
+ <resultMap id="BookMap" type="Book">
+     <result column="bdesc1" property="bdesc"/>
+ </resultMap>
+    <sql id="cols" >
+        book(bid,bname,btype ,price,bdesc)
+    </sql>
+    <select id="selectBookByid"  parameterType="int" resultMap="BookMap"  >
+        select * from book where bid=#{bid}
+    </select>
+    <select id="selectAll"  resultType="Book"  >
+        select * from book
+    </select>
+    <insert id="insertBook"      parameterType="Book">
+        insert into book(bid,bname,btype ,price,bdesc)
+        values (null,#{bname},#{btype},#{price},#{bdesc})
+    </insert>
+    <delete id="delById"  parameterType="int">
+        delete  from book where bid=#{bid}
+    </delete>
+    <delete id="delByWhere" parameterType="Book">
+        delete from  book where price>#{price} and btype=#{btype}
+
+    </delete>
+    <update id="updateByid"  parameterType="Book">
+        update book  set price=#{price} where bid=#{bid}
+    </update>
+
+
+
+
+
+    <update id="updateByMap"  parameterType="map">
+        update book  set price=#{price1} where bid=#{id}
+    </update>
+
+    <select id="selectBookByNameAndType" resultType="Book">
+     select * from book
+        <where>
+            <if test="bname!='' and bname!=null ">
+                bname=#{bname}
+            </if>
+            <if test="btype!=null and btype!=0">
+                and btype=#{btype}
+            </if>
+        </where>
+
+    </select>
+
+    <select id="selectBookByList" resultType="Book">
+        select * from book where btype in
+       <foreach collection="list" item="dds1" open="(" separator="," close=")">
+           #{dds1}
+       </foreach>
+    </select>
+    <select id="selectBookByArray" resultType="Book">
+        select * from book where btype in
+        <foreach collection="array" item="dds1" open="(" separator="," close=")">
+            #{dds1}
+        </foreach>
+
+    </select>
+    <select id="selectBookByContent" resultType="Book">
+        select * from book where btype in
+        <foreach collection="btypes" item="dds1" open="(" separator="," close=")">
+            #{dds1}
+        </foreach>
+        and  price>#{price}
+        limit #{from},#{count}
+    </select>
+
+    <select id="selectBookByPageLimit" resultType="Book">
+         select * from book where
+         price > #{price}
+         limit #{from},#{count}
+    </select>
+
+
+    <select id="selectBookByTrim" resultType="Book">
+        select * from book
+        <trim prefix="where"  prefixOverrides="and|or">
+            <if test="bname!='' and bname!=null ">
+                bname=#{bname}
+            </if>
+            <if test="btype!=null and btype!=0">
+                and btype=#{btype}
+            </if>
+           <if test="price!=null and price>0">
+               or price >#{price}
+           </if>
+        </trim>
+    </select>
+
+    <select id="selectBookByPage" resultType="Book">
+        select * from book where bname like #{key}
+        limit #{from},#{pageSize}
+
+    </select>
+   
+
+
+
+
+
+</mapper>

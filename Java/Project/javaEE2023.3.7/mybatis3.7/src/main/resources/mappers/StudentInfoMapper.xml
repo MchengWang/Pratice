@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jsj.dao.StudentInfoService">
+    <resultMap id="StudentMap" type="StudentInfo">
+        <result column="banjiName" property="banjiName"/>
+    </resultMap>
+    <resultMap id="StudentMap1" type="StudentInfo">
+      <association property="classInfo"  javaType="ClassInfo">
+          <result property="cname" column="banjiName"/>
+      </association>
+    </resultMap>
+ <resultMap id="studCourseMap" type="StudentInfo">
+     <id column="sid" property="sid"/>
+     <collection property="courseList" column="sid"
+                 select="com.jsj.dao.CourseService.selectCourseBySid">
+
+     </collection>
+ </resultMap>
+
+
+<select id="selectStudentByCid"  resultMap="studCourseMap">
+    select * from studentinfo where cid=#{cid}
+</select>
+
+    <select id="selectInfoWithClass"  resultMap="StudentMap1">
+        select cname as banjiName ,name ,gender,address
+        from classinfo c join
+        studentinfo s on c.cid=s.cid where c.cid=#{cid}
+    </select>
+</mapper>
