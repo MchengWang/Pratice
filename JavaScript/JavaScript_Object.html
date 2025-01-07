@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <script>
+    /*对象
+    *   1、Array（数组对象）
+    *       1、创建
+    *           1、var arr = new Array(元素列表);
+    *           2、var arr = new Array(默认长度);
+    *           3、var arr = [元素列表]；
+    *       2、方法
+    *           1、join（参数）将数组中的元素按照指定分隔符拼接为字符串
+    *           2、push()像数组的末尾添加一个或更多元素，并返回新的长度
+    *       3、属性
+    *           1、length() 数组的长度
+    *       4、特点
+    *           1、在js中，数组元素类型可变的
+    *           2、js中数组长度可变的
+    *   2、Boolean
+    *   3、Date
+    *       1、创建
+    *           1、var date = new Date();
+    *       2、方法
+    *           1、tolocalString():返回当前date对象对应的时间本地字符串格式
+    *           2、gettime():获取毫秒值，返回当前事件对象描述的时间到1970年1月1日零点的毫秒值
+    *   4、Math 数字
+    *       1、创建
+    *           1、特点 Math对象不用创建直接使用 Math.方法名();
+    *       2、方法
+    *           1、random（）: 产生一个0-1之间的随机数（含头不含尾 含0不含1）
+    *           2、ceil(x) 向上取整
+    *           3、floor（x） 向下取整
+    *           4、round(x) 四舍五入
+    *       3、属性 PI;
+    *   5、Number
+    *   6、String
+    *   7、RegExp
+    *       1、正则表达式
+    *           1、单个字符[]
+    *               如[a] , [ab] ,[a-z A-Z 0-9]
+    *               特殊符号代表特殊含义的单个字符
+    *                   \d 单个数字字符[0-9]
+    *                   \w 单个单词字符[a-z A-Z 0-9 _]
+    *           2、量词符号
+    *               * 表示出现0次或多次
+    *               ？表示出现0次或1次
+    *               + 出现1次或多次
+    *               {m,n}表示m<=数量<=n
+    *                   m 如果缺省 {,n}最多n次
+    *                   n 如果缺省 {m,n}最少m次
+    *           3、开始结束符号
+    *               ^开始
+    *               $结束
+    *       2、正则对象
+    *           1、创建
+    *               1.var reg = new RegExp("正则表达式");
+    *               2、var reg = /正则表达式/;
+    *           2、方法
+    *               1、test（参数）：验证指定字符串是否符合正则定义的规范
+    *   8、Global
+    *       1、特点：全局对象，这个Global中封装的方法不需要对象就可直接使用 方法名（）；
+    *       2、方法
+    *           1、encodeURI（）： url编码
+    *           2、decodeURI()：url解码
+    *           3、encodeURIComponent（）：url编码的字符更多
+    *           4、decodeUriComponent（）：url解码
+    *           5、parseInt():将字符串转化为数字
+    *               逐一判断每一个字母是否为数字，知道不是数字为止，将前边数字部分转化为number
+    *           6、isNaN()：判断一个值是否为NaN
+    *               NaN六亲不认，连自己都不认，NaN参与的==比较全部为false
+    *           7、eval（）：将javaScript字符串，并把它作为脚本代码来执行
+    *       3、Url编码
+    *   9、Function函数对象（方法）
+    *       1、创建
+    *           1、var fun = new Function(形参列表 ， 方法体)；
+    *           2、function 方法名 （参数列表）{方法体}
+    *           3、var 方法名 = function （参数列表）{方法体}
+    *       2、方法
+    *       3、属性
+    *           1、length 代表形参的个数
+    *       4、特点 定义方法是，参数类型可以不写
+    *           2、方法是一个对象，如果定义名称相同的方法，会覆盖前面定义的
+    *           3、在js中，方法的调用至于方法的名称有关，和参数列表无关
+    *           4、在方法声明中，有一个隐藏的内置对象（数组）arguments封装所有的实际参数
+    *       5、调用 方法名称（实际参数列表）*/
+    /*
+    * 取1-100之间的随机整数
+    *   1、Math.random
+    *   2、乘以100
+    *   3、舍弃小数 floor
+    *   4、+1*/
+    var number = Math.floor(Math.random() * 100) + 1;
+    alert(number);
+  </script>
+</body>
+</html>

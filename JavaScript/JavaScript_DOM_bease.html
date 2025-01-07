@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*
+        * DOM获取元素值
+        *   document.getElementById("id值")通过id值获取到指定的元素信息
+        * 操作：
+        *   属性
+        *   1、获取对象
+        *   2、查看API文档，查看哪些属性可修改
+        *   修改标题内容
+        *       属性：innerHTML
+        * 事件：
+        *   功能：某些组件被执行了某些操作后，激发了某些代码的执行
+        * 如何绑定时间
+        *   1、直接在HTMl标签上，指定事件的属性，属性值就是js代码
+        *       1、事件 onclick -- 单击属性
+        *   2、通过is获取元素对象，指定事件属性，设置一个函数*/
+        function fun(){
+            alert('我被点了');
+            alert('我又被点了');
+        }
+
+        function fun2(){
+            alert('咋老点我？');
+        }
+
+        //1.获取light2对象
+        var light2 = document.getElementById("light2");
+        //2.绑定事件
+        light2.onclick = fun2;
+
+    </script>
+</body>
+</html>
