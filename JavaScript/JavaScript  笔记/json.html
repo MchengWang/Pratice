@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<script>
+//			字符串转为对象,符合json语法
+			var a='{"name":"张三","age":18 }';
+			var b=eval("("+a+")");
+			var c=JSON.parse(a);
+			console.log(c)
+			
+//			对象转为字符串
+			var a1={name:"王五",age:20};
+		    var b1=JSON.stringify(a1,["name","age"],"\t");
+			console.log(b1);
+			
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

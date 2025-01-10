@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<style>
+		body{
+			background: #000;
+		}
+		#f1{
+			
+text-align: center;
+margin: 100px auto;
+font-family: "Comic Sans MS";
+font-size:200px;
+color: white;
+text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+
+		}
+		#flower{
+			display: none;
+			text-align: center;
+margin: 100px auto;
+font-size:200px;
+color: white;
+		}
+		
+	</style>
+	<body>
+		<div id="f1">5</div>
+		<div id="flower">愚人节快乐</div>
+		<script>
+			var f1=document.getElementById("f1");
+			var flo=document.getElementById("flower");
+			setInterval(function(){
+				if(f1.innerText!=0){f1.innerText-=1;}
+				else{
+					f1.style.display="none";
+					flo.style.display="block"
+				}
+			},1000)
+			
+			
+		</script>
+	</body>
+</html>

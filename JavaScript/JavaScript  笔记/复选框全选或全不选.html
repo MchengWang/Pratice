@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" name="" id="yi" value="" />
+			<input type="checkbox" name="" class="er" value="" />
+				<input type="checkbox" name="" class="er" value="" />
+					<input type="checkbox" name="" class="er" value="" />
+		 
+		 
+		 <script>
+		 	var yi=document.getElementById('yi');
+		 	var all=document.getElementsByClassName('er');
+		 	yi.onclick=function(){
+		 		for(var i=0;i<all.length;i++){
+		 			all[i].checked=yi.checked;
+		 			
+		 			}
+		 	};
+			 for(var i=0;i<all.length;i++){
+					all[i].onclick=function(){
+						var isall=true;//假设全部选中
+						//判断有没有都选中
+					for(var i=0;i<all.length;i++){
+						if(all[i].checked!==true){//假设当前未选中
+							isall=false;
+							break;
+						}
+					}
+						yi.checked=isall;
+					}
+				}
+		 </script>
+	</body>
+</html>

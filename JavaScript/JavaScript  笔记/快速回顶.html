@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	
+	<style type="text/css">
+		
+		#top{width: 800px;
+		height: 1000px;
+		position: relative;
+		background: aqua;
+			
+		}
+		span{
+			display: block;
+			width: 100px;
+			height: 100px;
+			background: red;
+			position:fixed;
+			bottom:50px;
+			left:600px;
+			display: none;
+		}
+	</style>
+	<body>
+		<div id='top'>
+			
+		</div><span id="span">
+			
+		</span>
+		<script>
+			//监听页面滚动
+			var span=document.getElementById('span');
+			var timer=null;
+			window.onscroll=function(){
+				var top =document.documentElement.scrollTop||document.body.scrollTop;
+				if(top>100)
+				{ 
+					
+					span.style.display='block';
+			              span.style.transition='all .10s;'
+				}
+				else{
+					span.style.display='none';
+				}
+				
+			}
+			span.onclick=function(){
+				window.scroll(0,0)
+			}
+		</script>
+	</body>
+</html>

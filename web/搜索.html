@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSONP跨域搜索下拉框</title>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <link rel="stylesheet" href="../bootstrap/bootstrap-3.4.1-dist/css/bootstrap-theme.min.css">
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    div{
+      width: 250px;
+      height: 300px;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+    input{
+      width: 350px;
+      height: 20px;
+    }
+    ul{
+      display: none;
+      width: 350px;
+      border: 1px solid rgb(11, 194, 223);
+
+    }
+    ul li{
+      list-style: none;
+      line-height: 25px;
+      padding: 5px;
+    }
+    ul li a{
+        color: black;
+        text-decoration: none;
+    }
+    ul li:hover{
+        background-color: beige;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <input type="text" id="txt">
+    <ul></ul>
+  </div>
+
+  <script>
+    oInput = document.getElementsByTagName('input')[0];
+    oUl = document.getElementsByTagName('ul')[0];
+
+    // oInput.onkeyup = function(){ 
+    //         var keyword = oInput.value.trim();   
+    //   if(keyword){
+    //     setTimeout(()=>{
+    //          var oScript = document.createElement('script');
+    //          oScript.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + keyword + '&cb=doJson';
+    //          oScript.id="scp"
+    //          document.body.appendChild(oScript)   
+    //   },300)   
+    //   }else{
+    //     oUl.style.display = 'none'; 
+    //   }
+    // }
+    // function doJson(data) {
+    //   console.log(data);
+    //   var dataList = data.s;
+    //   oUl.innerHTML = '';
+    //   oUl.style.display = 'block';
+    //   dataList.forEach(function(element,index){
+    //     var oLi = document.createElement('li');
+    //     var oA = document.createElement('a');
+    //     oA.href = 'https://www.baidu.com/s?wd=' + element;
+    //     oA.innerText = element;
+    //     oLi.appendChild(oA);
+    //     oUl.appendChild(oLi);
+    //   });
+    // }
+
+    //jquery版 发起跨域请求
+     $("#txt").on("keyup",function(){
+      var keyword=$(this).val().trim();
+        if(keyword){
+           getDate(keyword)
+           console.log(keyword);
+           }
+          })
+
+//跨域请求
+     function getDate(keyword){
+         $.ajax({
+          url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=' + keyword + '&cb=renderData',
+          dataType:'jsonp'
+         })
+        }
+
+//渲染数据到列表
+function  renderData(data){
+       console.log(data);
+       var dataList = data.s;
+       oUl.innerHTML = '';
+       oUl.style.display = 'block';
+        dataList.forEach(function(element,index){
+        var oLi = document.createElement('li');
+        var oA = document.createElement('a');
+        oA.href = 'https://www.baidu.com/s?wd=' + element;
+        oA.innerText = element;
+        oLi.appendChild(oA);
+        oUl.appendChild(oLi);
+      });
+}
+  </script>
+</body>
+</html>
+
+</body>
+</html>

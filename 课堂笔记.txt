@@ -1,0 +1,321 @@
+
+linux 终端指令 shell 脚本 shell编程  /
+指令 选项 参数
+
+// 1.查看所有的文件 list
+ls 默认当前目录路径
+ls -a 当前路径下 所有文件 包含隐藏文件
+ls -l 以列表的形式展示 == 简写 ll
+ls -h 展示文件的大小
+ls -alh
+
+
+//2. 切换路径 cd change directory
+cd  # 回到家目录 /root
+cd  ~ 
+
+cd xxx #  指定的路径 相对路径
+cd /dssdd/fdsfdsd/fdsdfds # 绝对路径
+
+cd - # 回到上一次操作的路径
+cd / # 回到 根路径
+cd ../ # 回到上级路径 
+
+//3. 创建文件夹 mkdir 
+mkdir 文件夹名字 文件夹名字 文件夹名字
+mkdir -p A/B/C
+
+//4. 删除文件夹 rm 
+rm -r 文件夹
+rm -f 强制删除 不提示
+
+//5. 创建文件 touch xx.txt
+//6. 移动文件/文件夹 move mv 
+修改名字--目标路径不存在
+移动--目标路径存在
+
+// cp 复制文件或者文件夹
+cp 文件 新文件名字
+cp -r 文件夹  指定的文件夹内
+
+// 查看主机名称
+hostname
+
+//查看linux IP 地址
+ifconfig
+
+// 查看windows IP 地址
+ipconfig
+
+// 重启 reboot
+// 关机 showdown -h now
+
+# 1. 打开需要编辑的文件 vi a.txt
+# 2. 按住 命令 key--- i
+# 3. 写代码
+# 4. Esc 退出编辑模式---命令模式
+# 5. 命令: shift + ;
+# 6. 尾行模式: wq
+
+1-45 3p 
+
+#  使用python 随机 三个学号 打印输出
+
+
+
+# 1. 打开Vmware 虚拟机 
+# 2. 双击内存的位置 4G 
+# 3. 启动node1
+# 4. finalshell 连接下
+
+# 5. 切换到 指定的文件夹
+cd /export/oneKey/
+
+# 6. 启动脚本文件
+ls 
+start-all.sh 
+
+# 7. 终端查看 hadoop是否启动成功
+jps
+
+# 8. 浏览器 查看 hadoop 是否启动成功 
+http://192.168.88.100:50070
+
+
+
+
+
+笔记本 内存 8G 可以执行 node1
+
+
+#  上传文件 到hadoop
+hadoop fs -put 本地文件路径  hadoop的路径
+
+#  下载文件 从Hadoop
+hadoop fs -get hadoop文件路径 本地路径
+
+#  hadoop创建 文件夹
+hadoop fs -mkdir /新文件夹
+
+#  cp mv rm 
+hadoop fs -cp /demo2 /demo3
+hadoop fs -mv /demo3 /DEMO
+hadoop fs -rm -r /demo2
+
+ll > dd.txt 
+ll >> dd.txt 
+
+
+
+# 大数据的概述-->Linux 系统
+
+Hadoop 集群--软件--框架
+作用:
+    大数据的存储
+                HDFS
+    大数据的计算 
+                Yarn
+                MapReduce
+
+# win10 搭建hadoop集群 
+单机模式: node1--
+集群模式: node1, node2, node3
+
+# hadoop操作的指令
+hadoop fs -ls       hadoop路径
+hadoop fs -mkdir  文件夹的名字
+hadoop fs -cp  hadoop路径  hadoop路径
+hadoop fs -mv   hadoop路径  hadoop路径
+
+# 上传
+hadoop fs -put 本地文件 hadoop集群
+
+# 下载
+hadoop fs -get hadoop集群 本地文件
+
+
+数据库 -- 存储业务数据--为用户服务的--个人信息, 行为收藏, 点赞, 购物车, 下单-->存储到--对方服务器数据库
+
+备份抽取--避免操作失误 删除了核心数据, 或者分析错了数据
+数据仓库 -- 做数据分析--
+
+hadoop作用---软件 大数据分析的
+         存储
+         计算
+
+      架构组成:
+           HDFS 分布式文件存储系统
+           MapReduce 分布式计算
+           Yarn 资源调度管理
+#建库：
+    hivesql:
+          cd /export/server/spark-2.3.0-bin-hadoop2.7/bin
+          beeline
+          !connect jdbc:hive2://192.168.88.100:10000
+
+          create database student_db; 
+    mysql:
+          mysql -uroot -p123456
+          create database student_db; 
+# 删库
+    drop database student_db;
+#建表:
+    create table tb_name(字段名字 字段类型 );
+
+# 数据类型
+    boolean 布尔类型 true/false 
+    int 整数
+    float 小数  double 
+    string 字符串
+
+    Mysql  char() 字符串
+    date
+    time
+    datetime
+
+# 聚合函数 Sum() Avg() max() min() last() first()
+# 运算符 >= <= > != 
+# 逻辑运算符:  and or not
+# 范围运算符: in
+create table score(sid varchar(20), score int, cid varchar(20));
+insert into score values('01', 80, '01');
+insert into score values('01', 90, '02');
+insert into score values('01', 99, '03');
+insert into score values('02', 100, '01');
+insert into score values('03', 59, '02');
+insert into score values('02', 70, '03');
+insert into score values('03', 80, '01');
+insert into score values('03', 50, '02');
+insert into score values('04', 30, '03');
+insert into score values('04', 70, '01');
+insert into score values('05', 90, '02');
+insert into score values('05', 100, '03');
+
+（1）查询成绩大于80，并且sid是01的数据 
+select * from score where score > 80 and sid ='01';
+
+（2）查询成绩大于80，或者sid 是01的数 
+select * from score where score > 80 or sid ='01';
+
+（3）查询sid 不是 01和02的学生 
+select * from score where sid !='01' and sid != '02';
+select * from score where sid not in('01', '02');
+
+（1）计算每个学生的平均分数 
+select avg(score) from score group by sid;
+
+（2）计算每个学生最高成绩 
+select max(score) from score group by sid;
+
+-- 求每个学生平均分数大于85的人 
+分组之后 再筛选数据 --只能使用 having 
+select avg(score) as avg_score from score group by sid having avg_score > 85;
+
+(1)查询学生的成绩，并按照分数升序排列 
+select * from score order by score asc;
+
+(2)按照分数的平均值降序排序 
+select avg(score) avg_score from score group by sid order by avg_score desc;
+
+(3) 分页查询 limit
+select * from score limit 3;
+
+ 
+
+# 1. 保留几位小数
+select round(3.12455656, 3);
+
+# 2. 随机数
+select round();
+select round(round()*10);
+
+# 3. 字符串拼接
+concat
+select concat('张三', '36');
+
+concat_ws
+select concat(":",'张三', '36');
+select concat("年", '2021','08');
+
+# 4. 字符串 截取
+substr
+select substr('abcdefg',2,3);
+
+substring 
+
+# 5. 日期 year month day hour
+select year('2021-12-09');
+select month('2021-12-09');
+select day('2021-12-09');
+select hour('2021-12-09 11:18:00');
+
+# 日期格式化
+select date_format('2021-12-9 11:18:00', '%Y-%m-%d');
+
+# 1. 保留几位小数
+select round(3.12455656, 3);
+
+# 2. 随机数
+select rand();
+select round(rand()*10);
+
+# 3. 字符串拼接
+concat
+select concat('张三', '36');
+
+concat_ws
+select concat(":",'张三', '36');
+select concat("年", '2021','08');
+
+# 4. 字符串 截取
+substr
+select substr('abcdefg',2,3);
+
+substring 
+
+# 5. 日期 year month day hour
+select year('2021-12-09');
+select month('2021-12-09');
+select day('2021-12-09');
+select hour('2021-12-09 11:18:00');
+
+# 日期格式化
+select date_format('2021-12-9 11:18:00', '%Y-%m-%d');
+
+
+
+
+# case when 
+select 
+sid,
+score,
+case when score >= 80 then '优秀'
+     when score >= 60 then '及格'
+else
+   '不及格'
+
+end
+from score;
+
+
+# 滴滴出行案例
+
+# 1. 介绍 滴滴出行案例分析 架构
+日志数据-->Hadoop(HDFS)-->Hive(1.复制数据 2.提取转换数据ETL 3.存储分析结果) -->Sqoop-->Mysql --->可视化
+
+# 2.介绍 源数据 
+订单表 --- 取消订单表---支付表--评价表
+
+# 3.创建 3层的数据仓库 ods_didi dw_didi app_didi
+# 4.创建了 4个表
+# 5.导入4个数据 --ods_didi
+
+
+
+
+
+
+
+
+
+

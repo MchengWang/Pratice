@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<script src="js/js.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="css/css.css"/>
+	<title>js幻灯片</title>
+	<!-- 菜单栏 -->
+	<style>
+	
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	body{background-color: #171717}
+	.w {
+		width: 1200px;
+		margin: 0 auto;
+	}
+	.nav_menu {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		height: 50px;
+		/* background-color: #4caf50; */
+		/* border: 1px solid #ccc; */
+		padding: 10px;
+		color: #fff;
+		
+	}
+	.menu_item {
+		position: relative;
+		flex: 1;
+		height: 100%;
+		line-height: 50px;
+		text-align: center;
+		transform-style: preserve-3d;
+		transition: all 0.5s;
+		/* margin: 0 5px; */
+	}
+	.menu_item:hover {
+		cursor: pointer;
+		transform: rotateX(90deg);
+	}
+	.home, .web_home {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		perspective: 300px;
+	}
+	.home {
+		background-color: #db0fca;
+		z-index: 11;
+		border-radius: 5px;
+		transform: translateZ(25px);
+	}
+	.web_home {
+		background-color: #009688;
+		border-radius: 5px;
+		transform: translateY(25px) rotateX(-90deg);
+	}
+</style>
+</head>
+<body>
+<!-- 菜单栏 -->
+	<div class="nav_menu w">
+        <div class="menu_item">
+            <div class="home">首页</div>
+            <div class="web_home">网站首页</div>
+        </div>
+        <div class="menu_item">
+            <div class="home">首页1</div>
+            <div class="web_home">网站首页1</div>
+        </div>
+        <div class="menu_item">
+            <div class="home">首页2</div>
+            <div class="web_home">网站首页2</div>
+        </div>
+        <div class="menu_item">
+            <div class="home">首页3</div>
+            <div class="web_home">网站首页3</div>
+        </div>
+        <div class="menu_item">
+            <div class="home">首页4</div>
+            <div class="web_home">网站首页4</div>
+        </div>
+        <div class="menu_item">
+            <div class="home">首页5</div>
+            <div class="web_home">网站首页5</div>
+        </div>
+	</div>
+	<!-- 菜单栏 结束-->
+	<!-- banner轮播图开始 -->
+	<div id="boxhdp">
+		<ul id="img">
+			<li class="current"><img src="img/t1.png"></li>
+			<li><img src="img/t2.png"></li>
+			<li><img src="img/t3.png"></li>
+			<li><img src="img/t4.png"></li>
+			<li><img src="img/t5.png"></li>
+		</ul>
+		<ul id="li">
+			<li class="on"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<div style="clear: both;"></div>
+		<div class="an" id="an">
+			<a href="javascript:;" id="prev"><</a>
+			<a href="javascript:;" id="next" class="an-a2">></a>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		hdp({
+			li:"li",	//默认值：li;默认用li包裹
+			boxid:"boxhdp",	//最外面div  id
+			imgid:"img",	//图片外面id
+			optid:"li",	//opt外面id	
+			an:"an",		//左右按钮id，用于移上显示和隐藏
+			prev:"prev",	//左边箭头id
+			next:"next",	//右边箭头id
+			ms:1500		//多少毫秒切换一张,默认800毫秒
+		})
+	</script>
+</body>
+</html>

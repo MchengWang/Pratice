@@ -1,0 +1,37 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs" ,
+    "pages/happy/happy",
+    "pages/car/car" ,
+    "pages/my/my"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json" ,
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "pages/images/index.png",
+      "selectedIconPath": "pages/images/index.png"
+    },
+    {
+      "pagePath": "pages/car/car",
+      "text": "车辆",
+      "iconPath": "pages/images/car.png",
+      "selectedIconPath": "pages/images/car.png"
+    } ,
+    {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "pages/images/my.png",
+      "selectedIconPath": "pages/images/my.png"
+    }]
+  }
+}

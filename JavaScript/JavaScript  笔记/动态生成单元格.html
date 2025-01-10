@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<table id="yi">
+			
+		</table>
+		<script>
+		
+			var arrs=[
+			{
+				name:'杨幂',
+				kemu:'语文',
+				score:89
+			},
+			{
+				name:'柳岩',
+				kemu:'语文',
+				score:89
+			},
+			{
+				name:'云桑 ',
+				kemu:'语文',
+				score:87
+			},
+			];
+		var table=document.getElementById("yi");
+		for(var i=0; i<arrs.length;i++){
+		var tr=document.createElement('tr');
+		table.appendChild(tr);
+		for(var k in arrs[i]){
+				var td=document.createElement('td');
+				td.innerHTML=arrs[i][k];
+				tr.appendChild(td)
+			
+		}
+		var td=document.createElement('td');
+		td.innerHTML="<a href='#'>删除</a>";
+		tr.appendChild(td);
+		}
+		var a1=document.querySelectorAll("a");
+			for(var d=0; d<a1.length;d++){
+			a1[d].onclick=function(){
+				table.removeChild(this.parentNode.parentNode)
+			}
+			
+		}
+		
+			
+		</script>
+	</body>
+</html>

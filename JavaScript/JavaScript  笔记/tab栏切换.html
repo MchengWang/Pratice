@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style>
+			#div1{
+				width: 200px;
+				height: 150px;
+				background: red;
+				float: left;
+			}
+			#div2{
+				float: left;
+				width: 200px;
+				height: 150px;
+				background: blue;
+				display: none;
+			}
+			span{
+				
+				display: block;
+				width: 50px;
+				height: 50px;
+				background: blueviolet;
+				float: left;
+				margin-left: 20px;
+			cursor:pointer;
+			}
+		</style>
+	</head>
+	<body><span id="yi">第一</span>
+		<span id="er">第二</span>
+		<div id="div1">
+		
+	</div>
+	<div id="div2"></div>
+	<script>
+		      var yi= document.getElementById('yi') ,
+		          er= document.getElementById('er'),
+		          div1= document.getElementById('div1'),
+		          div2= document.getElementById('div2');
+		     yi.onclick=function(){
+		     	div2.style.display='block';
+		     	div1.style.display='none'
+		     }
+		     er.onclick=function(){
+		     	
+		     	div1.style.display='block';
+		     	div2.style.display='none'
+		     }
+	</script>
+	</body>
+</html>

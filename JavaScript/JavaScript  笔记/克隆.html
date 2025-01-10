@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		#cc2,#cc3,#cc4,#cc6,#cc7,#cc0,#cc1,#cc8,#cc5,#cc9{
+			width: 100px;
+			height: 100px;
+			background: blueviolet;
+			margin-bottom: 10px;
+			position: absolute;
+			
+			
+		}
+		#top1{
+			position:relative
+			width: 1000px;
+			height: 1500px;
+			border: 5px solid khaki;
+		}
+		#div1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-bottom: 10px;
+			
+		}
+	</style>
+	<body>
+		<div id="top1">
+			<div id="div1"></div>
+		</div>
+		<script>
+			 var top1=document.getElementById('top1'),
+			      div1=document.getElementById('div1');
+			      for( var i=0;i<10;i++){
+			      var clone =div1.cloneNode(true);
+			      clone.id="cc"+i;
+			      top1.appendChild(clone);
+			      var x=parseInt(Math.random()*1000);
+			      var y=parseInt(Math.random()*1000);
+			      clone.style.left=x+'px';
+			      clone.style.top=y+'px';
+			      
+			      } 
+		           
+			      	
+
+		</script>
+	</body>
+</html>

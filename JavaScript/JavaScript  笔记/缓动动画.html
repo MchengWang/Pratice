@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+	#box{
+		width: 200px;
+		height: 200px;
+		background: yellowgreen;
+	}
+	
+	
+	</style>
+	<body>
+		<button id="btn">开始动画 </button>
+		<div id="box"></div>
+		<script>
+			var btn=document.getElementById("btn");
+		    var box=document.getElementById("box");
+			var timer=null;begin=0;eng=800;
+			//动画效果  起始值+=（结束值-起始值）*缓动系数（0-1）
+			btn.onclick=function(){
+				clearInterval(timer);
+				timer=setInterval(function(){
+					begin+=(eng-begin)*0.2;
+					if (Math.round(begin)>=eng){
+						begin=eng;
+						clearInterval(timer);
+						
+					}
+					box.style.marginLeft=begin+"px"
+					
+				},100)
+			}
+			
+		</script>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<style>
+		body{
+			text-align: center;
+		}
+		#text{
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+			margin: 0 auto;
+			margin-top: 20px;
+		}
+	</style>
+	<body>
+		<button id="btn1">开始点名</button>
+		<button id="btn2">结束点名</button>
+		<div id="text"></div>
+		<script>
+			window.onload=function(ev1){
+			var btn1=document.getElementById('btn1');
+			var btn2=document.getElementById('btn2');
+			var tex=document.getElementById('text');
+            var nameArr=["迪丽热巴","杨幂","关晓彤",'张碧晨','鞠婧炜'];
+            var timer=null;
+		     tex.innerText=nameArr[0];
+		btn1.onclick=function(){
+			clearInterval(timer);
+			timer=setInterval(function(){
+				var i=parseInt(Math.random()*nameArr.length);
+				tex.innerText=nameArr[i];
+			},60)
+		}
+		btn2.onclick=function(){
+			clearInterval(timer)
+		}
+		}</script>
+	</body>
+</html>

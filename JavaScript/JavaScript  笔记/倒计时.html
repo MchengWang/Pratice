@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="" value="" />
+		<input type="button" value="点击发送短信" id="btn"/>
+		<script>
+			var mum=61;
+			var btn=document.getElementById('btn');
+			btn.onclick=function(){
+				
+				timer=setInterval(function(){
+				mum--;
+				btn.value=mum+"秒后可以再次发送";
+				if(mum===0){
+					clearInterval(timer);
+					btn.value="点击发送短信";
+					btn.disabled=false;
+					mum=61
+				}
+				btn.disabled=true;	
+					
+				},1000);
+				
+			}
+		</script>
+	</body>
+</html>

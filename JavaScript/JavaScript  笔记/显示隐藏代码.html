@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<style>
+			div{
+				width: 100px;height: 80px;
+				background: blue;
+				margin: 0 auto;
+				
+			}
+			#btn{display: block;
+				margin: 0 auto;
+				
+			}
+		</style>
+		<script>
+//			var b=1;
+//			function a(){
+//				
+//				console.log(1);
+//				setTimeout(
+//					function () {
+//						a();
+//					}
+//				),'1000' };
+//			a();
+//          window.onload=function(){
+//          	setTimeout(
+//          		function(){
+//          			document.getElementById('yi').style.height='1000px'
+//          			
+//          		},1000
+//          	)
+//          }
+		</script>
+	</head>
+	<body><button id="btn">显示隐藏</button>
+	<div id="yi"></div>
+	<script>
+		var btn=document.getElementById('btn');
+		  var  yi=document.getElementById('yi');
+		    num=0;
+		   btn.onclick=function(){
+	       	num=num+1;
+		if(num%2==1){
+			yi.style.display='none'
+		}
+		else{
+			yi.style.display='block'
+		}
+	}
+		
+	</script>
+	
+	</body>
+</html>

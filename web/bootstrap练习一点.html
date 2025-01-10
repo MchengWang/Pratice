@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+    <style>
+        @-moz-document url-prefix() {
+           fieldset { display: table-cell; }
+             }
+             .table{
+                border: 1px solid red;
+             }
+             td{
+                border:  1px solid #999;
+             }
+    </style>
+</head>
+<body>
+    <div class="table-responsive">
+        <table class="table table-hover" id="dateTable">
+               
+        </table>
+        <img src="" alt="" srcset="" id="img">
+        <button type="button" class="btn btn-info" id="btn1">获取数据</button>
+      </div>
+      <script>
+        let btn1=document.getElementById("btn1")
+        let dateTable=document.getElementById("dateTable")
+        let img=document.getElementById("img")
+        var l=false//开关阀
+        btn1.onclick=function(){
+            if(l==false)
+            getDate("https://applet-base-api-t.itheima.net/articles")
+        }   
+
+        function getDate(url){
+            let xhr=new XMLHttpRequest();
+            xhr.open("get",url)
+            xhr.send();
+            xhr.onreadystatechange=function(){
+                if(xhr.status >= 200 &&xhr.readyState == 4)
+                {
+                    l=true
+                    var res=JSON.parse(xhr.responseText)
+                    console.log(res);
+                   for(let i=0;i<res.length;i++){
+                       var tr=document.createElement("tr")
+                      dateTable.appendChild(tr)
+                      for (const k in res[i]) {
+                        if(res[i].art_id==7420){
+                          var td=document.createElement("td") 
+                            td.innerHTML=res[i][k]
+                            tr.appendChild(td)
+                            img.src=res[i].cover.images[0]
+                        }
+                   }
+                }
+            }
+
+        }
+    }
+      </script>
+</body>
+</html>

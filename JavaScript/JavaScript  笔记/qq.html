@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+	</head>
+	<body>
+		<form>
+		<input type="text" id="tet" />请输入你的8位手机号
+		<input type="submit" id="su"/></form>
+		<script>
+			var tet=document.getElementById('tet');
+			var su=document.getElementById('su');
+			    var reg=/^[0-9]{8}$/;   /*定义验证表达式*/
+			  su.onclick=function(){
+			   	
+                if(!reg.test(this.value)){
+               	alert('错误')
+               }}
+			  var i=[1,2,3,2,7,5];
+			 console.log( i.sort())
+		</script>
+	</body>
+</html>
