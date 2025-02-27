@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-FileSystem-Win64-DebugGame.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\Serendipity\Desktop\test\TestProject\Intermediate\Build\Win64\x64\TestProjectEditor\DebugGame\UnrealEd\SharedPCH.UnrealEd.Project.NonOptimized.ValApi.Cpp20.h.obj"
+"C:\Users\Serendipity\Desktop\test\TestProject\Plugins\FileSystem\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\FileSystem\Module.FileSystem.cpp.obj"
+"C:\Users\Serendipity\Desktop\test\TestProject\Plugins\FileSystem\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\FileSystem\FileSystem.cpp.obj"
+"C:\Users\Serendipity\Desktop\test\TestProject\Plugins\FileSystem\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\FileSystem\FileSystemBPLibrary.cpp.obj"
+"C:\Users\Serendipity\Desktop\test\TestProject\Plugins\FileSystem\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\FileSystem\Default.rc2.res"
+/OUT:"C:\Users\Serendipity\Desktop\test\TestProject\Plugins\FileSystem\Intermediate\Build\Win64\x64\UnrealEditor\DebugGame\FileSystem\UnrealEditor-FileSystem-Win64-DebugGame.lib"

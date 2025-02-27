@@ -1,0 +1,16 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\serendipity\\desktop\\test\\testproject\\plugins\\filesystem\\source\\filesystem\\private\\filesystembplibrary.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\serendipity\\desktop\\test\\testproject\\intermediate\\build\\win64\\x64\\testprojecteditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\serendipity\\desktop\\test\\testproject\\plugins\\filesystem\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\filesystem\\definitions.filesystem.h",
+            "c:\\users\\serendipity\\desktop\\test\\testproject\\plugins\\filesystem\\source\\filesystem\\public\\filesystembplibrary.h",
+            "c:\\users\\serendipity\\desktop\\test\\testproject\\plugins\\filesystem\\intermediate\\build\\win64\\unrealeditor\\inc\\filesystem\\uht\\filesystembplibrary.generated.h",
+            "c:\\users\\serendipity\\desktop\\test\\testproject\\plugins\\filesystem\\source\\filesystem\\public\\filesystem.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

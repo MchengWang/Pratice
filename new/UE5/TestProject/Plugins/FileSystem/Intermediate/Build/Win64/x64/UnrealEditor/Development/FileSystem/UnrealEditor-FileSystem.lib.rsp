@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-FileSystem.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\Serendipity\Desktop\test\TestProject\Intermediate\Build\Win64\x64\TestProjectEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp20.h.obj"
+"C:\Users\Serendipity\Desktop\test\TestProject\Plugins\FileSystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\FileSystem\Module.FileSystem.cpp.obj"
+"C:\Users\Serendipity\Desktop\test\TestProject\Plugins\FileSystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\FileSystem\FileSystem.cpp.obj"
+"C:\Users\Serendipity\Desktop\test\TestProject\Plugins\FileSystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\FileSystem\FileSystemBPLibrary.cpp.obj"
+"C:\Users\Serendipity\Desktop\test\TestProject\Plugins\FileSystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\FileSystem\Default.rc2.res"
+/OUT:"C:\Users\Serendipity\Desktop\test\TestProject\Plugins\FileSystem\Intermediate\Build\Win64\x64\UnrealEditor\Development\FileSystem\UnrealEditor-FileSystem.lib"

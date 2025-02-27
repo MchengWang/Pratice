@@ -1,0 +1,12 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.FileSystem.cpp.obj": [
+			"FileSystem.init.gen.cpp.obj",
+			"FileSystemBPLibrary.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"FileSystem.cpp.obj",
+			"FileSystemBPLibrary.cpp.obj"
+		]
+	}
+}
