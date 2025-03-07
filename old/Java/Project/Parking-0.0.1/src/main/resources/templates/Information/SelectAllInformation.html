@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        .jump{
+            border: none;
+            background-color: #fff;
+            color: #6e7abe;
+        }
+        .jump :hover{
+            cursor: pointer;
+            text-decoration: underline #6e7abe;
+        }
+    </style>
+</head>
+<body>
+<form action="/SearchInformation" method="post">
+    <table class="table table-bordered">
+        <tr>
+            <td colspan="4"><input type="submit" class="jump" value="查询">
+                <select name="condition">
+                    <option value="标题">标题</option>
+                    <option value="类别">类别</option>
+                </select>
+                <input type="text" name="search" placeholder="请输入你要查询的信息">
+            </td>
+        </tr>
+        <tr>
+            <td>序号</td>
+            <td>标题</td>
+            <td>类型</td>
+            <td>操作</td>
+        </tr>
+        <tr th:each="alist : ${AnList}">
+            <td th:text="${alist.id}"></td>
+            <td th:text="${alist.title}"></td>
+            <td th:text="${alist.type}"></td>
+            <td><a th:href="@{/SelectOnce(id=${alist.id})}">查看通知</a> &nbsp;&nbsp; | &nbsp;&nbsp;<a th:href="@{/delInformation(id = ${alist.id})}">删除当前信息</a></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .left{
+            float: left;
+            width: 10%;
+            height: 655px;
+            border-right: solid 1px #d3d3d3;
+        }
+        .right{
+            float: right;
+            width: 89.3%;
+            height: 670px;
+        }
+        ul{
+            margin-top: 30px;
+        }
+        a{
+            display: block;
+            font-family: "JetBrains Mono";
+            font-size: 15px;
+            margin-top: 10px;
+        }
+        .right{
+            border: none;
+            float: left;
+        }
+    </style>
+
+</head>
+<body>
+<div class="left">
+    <ul>
+        <a th:href="@{/InformationPublishing}" target="information">添加信息</a>
+        <a th:href="@{/selectAllInformation}" target="information">查看信息</a>
+    </ul>
+</div>
+    <iframe class="right" name="information" th:src="@{/selectAllInformation}">
+</iframe>
+</body>
+</html>

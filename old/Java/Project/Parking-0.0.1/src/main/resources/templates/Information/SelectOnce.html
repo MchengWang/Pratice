@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/layui.css">
+    <script src="/js/layui.js"></script>
+    <style>
+        form{
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+        var values = [${message}]; // 获取后台传递过来的信息，用于提示用户是否添加成功
+        if(values !== null){
+            alert(values);
+        }
+    </script>
+</head>
+<body>
+<form class="layui-form" action="/updateMessage" method="post">
+    <div class="layui-form-item">
+        <label class="layui-form-label">序号</label>
+        <div class="layui-input-block">
+            <input type="text" name="id" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" readonly="readonly" th:value="${Once.id}">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">标题
+        </label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" th:value="${Once.title}">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">类别</label>
+        <div class="layui-input-block">
+            <select name="type" lay-verify="required" id="select" th:value="${Once.type}">
+                <option value="费用">费用</option>
+                <option value="整改">整改</option>
+                <option value="维修">维修</option>
+                <option value="停用">停用</option>
+                <option value="扩建">扩建</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">文本域</label>
+        <div class="layui-input-block">
+            <textarea name="text" placeholder="请输入内容" class="layui-textarea" th:text="${Once.content}"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">修改</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>

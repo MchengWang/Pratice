@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/layui.css">
+    <script src="/js/layui.js"></script>
+    <style>
+        iframe{
+            margin: 0px;
+            height: 680px;
+            width: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="layui-tab">
+        <ul class="layui-nav">
+            <li class="layui-nav-item"><a href="javascript:void(0);">SPACE</a></li>
+            <li class="layui-nav-item layui-this"><a th:href="@{/}">首页</a></li>
+            <li class="layui-nav-item">
+                <a href="/ParkingSpaces" target="content">车位信息</a>
+            </li>
+            <li class="layui-nav-item"><a th:href="@{/message}" target="content">信息发布</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:void(0);">个人</a>
+                <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                    <dd><a th:href="@{/login}" target="content">登录</a></dd>
+                    <dd><a th:href="@{/clear}" target="content">退出账户</a></dd>
+                    <dd><a th:href="@{/CusMessage}" target="content">用户信息</a></dd>
+                </dl>
+            </li>
+        </ul>
+    </div>
+    <iframe th:src="@{/login}" name="content"></iframe>
+</body>
+</html>

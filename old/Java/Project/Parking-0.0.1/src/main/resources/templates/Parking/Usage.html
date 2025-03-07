@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        .jump{
+            border: none;
+            background-color: #fff;
+            color: #6e7abe;
+        }
+        .jump :hover{
+            cursor: pointer;
+            text-decoration: underline #6e7abe;
+        }
+    </style>
+</head>
+<body>
+<form action="/Usage">
+    <table class="table table-bordered">
+        <tr>
+            <td>已停车车位：</td>
+            <td th:text="${nums[0]}"></td>
+            <td>空闲车位：</td>
+            <td th:text="${nums[1]}"></td>
+            <td>整改中车位：</td>
+            <td th:text="${nums[2]}"></td>
+        </tr>
+        <tr>
+            <td>未停小型车车位：</td>
+            <td th:text="${nums[3]}"></td>
+            <td>未停中型车车位：</td>
+            <td th:text="${nums[4]}"></td>
+            <td>未停大型中车位：</td>
+            <td th:text="${nums[5]}"></td>
+        </tr>
+        <tr>
+            <td>已停小型车车位：</td>
+            <td th:text="${nums[6]}"></td>
+            <td>已停中型车车位：</td>
+            <td th:text="${nums[7]}"></td>
+            <td>已停大型中车位：</td>
+            <td th:text="${nums[8]}"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="submit" value="刷新"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

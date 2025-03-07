@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .content {
+            width: 1100px;
+            height: 400px;
+            margin: 50px auto 0;
+            background: #fff;
+        }
+        .content aside {
+            float: left;
+            margin-left: 100px;
+        }
+        .content .right {
+            width: 385px;
+            float: left;
+            margin-left: 80px;
+        }
+        .content .right input {
+            width: 340px;
+            height: 30px;
+            padding-left: 20px;
+            line-height: 30px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        input::placeholder {
+            color: #ccc;
+        }
+        .content .right span {
+            display: inline-block;
+            width: 91px;
+            font-size: 14px;
+            color: #2fade7;
+            margin: 30px 0 0 25px;
+        }
+        .content .right a {
+            font-size: 14px;
+            padding: 0;
+            height: 50px;
+            float: right;
+            line-height: 50px;
+            color: red;
+            text-align: right;
+        }
+        .content .right input:nth-of-type(4) { margin: 0;}
+        img{
+            width: 400px;
+            height: 300px;
+            align: center;
+            margin-top: 25px;
+        }
+        .button{
+            background-color:#2fade7;
+            color: #fff;
+        }
+        .title {
+            font-size: 30px;
+            margin: 10px 40px 10px 0px;
+        }
+        .jj{
+            margin-top: 30px;
+        }
+    </style>
+    <link href="/css/layui.css">
+</head>
+<body>
+    <div class="content">
+        <div class="content">
+            <aside> <img src="/image/dd.jfif"></aside>
+            <div class="right">
+                <h3 class="title">注册</h3>
+                <form action="/enrollInsert" method="post" class="jj">
+                    <input type="text" placeholder="账户名" name="account">
+                    <input type="password" placeholder="密码" maxlength="16" name="password" id="cord">
+                    <input type="password" placeholder="确认密码"maxlength="16" style="margin-top: 20px" onfocus="yz(this)" id="record">
+                    <input type="submit" value="注册" class="button" style="margin: 20px 30px 0px 0px;">
+                    <a th:href="@{/login}" target="content">已有账号？</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

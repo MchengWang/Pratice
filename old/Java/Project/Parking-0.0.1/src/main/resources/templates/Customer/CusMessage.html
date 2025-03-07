@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        .jump{
+            border: none;
+            background-color: #fff;
+            color: #6e7abe;
+        }
+        .jump :hover{
+            cursor: pointer;
+            text-decoration: underline #6e7abe;
+        }
+    </style>
+</head>
+<body>
+    <form action="/SearchCustomer" method="post">
+        <table class="table table-bordered">
+            <tr>
+                <td colspan="2"><a th:href="@{/InsertCustomer}" target="content" >添加</a></td>
+                <td colspan="4"><input type="submit" class="jump" value="查询">
+                    <select name="condition">
+                        <option value="姓名">姓名</option>
+                        <option value="车牌">车牌</option>
+                    </select>
+                    <input type="text" name="search" placeholder="请输入你要查询的信息">
+                </td>
+            </tr>
+            <tr>
+                <td>序号</td>
+                <td>姓名</td>
+                <td>电话</td>
+                <td>车牌</td>
+                <td>备注</td>
+                <td>操作</td>
+            </tr>
+            <tr th:each="customer : ${CustomerList}">
+                <td th:text="${customer.id}"></td>
+                <td th:text="${customer.name}"></td>
+                <td th:text="${customer.tel}"></td>
+                <td th:text="${customer.licensePlate}"></td>
+                <td th:text="${customer.extra}"></td>
+                <td><a th:href="@{/delCustomer(id = ${customer.id})}">删除</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a th:href="@{/updCustomer(id = ${customer.id})}">修改</a></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

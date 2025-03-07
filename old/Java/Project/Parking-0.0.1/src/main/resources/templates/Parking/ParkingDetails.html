@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+        .jump{
+            border: none;
+            background-color: #fff;
+            color: #6e7abe;
+        }
+        .jump :hover{
+            cursor: pointer;
+            text-decoration: underline #6e7abe;
+        }
+    </style>
+</head>
+<body>
+<form action="/SearchParking" method="post">
+    <table class="table table-bordered">
+        <tr>
+            <td colspan="2"><a target="content" ></a></td>
+            <td colspan="4"><input type="submit" class="jump" value="查询">
+                <select name="condition">
+                    <option value="车位类型">车位类型</option>
+                    <option value="车位状态">车位状态</option>
+                    <option value="车位位置">车位位置</option>
+                </select>
+                <input type="text" name="search" placeholder="请输入你要查询的信息">
+            </td>
+        </tr>
+        <tr>
+            <td>序号</td>
+            <td>车位类型</td>
+            <td>车位状态</td>
+            <td>车位位置</td>
+            <td>操作</td>
+        </tr>
+        <tr th:each="park ${parking}">
+            <td th:text="${park.id}"></td>
+            <td th:text="${park.ParkingSpaces_type}"></td>
+            <td th:text="${park.ParkingSpaces_state}"></td>
+            <td th:text="${park.ParkingSpaces_local}"></td>
+            <td><a th:href="@{/updatePark(id = ${park.id})}">修改</a> &nbsp;&nbsp; | &nbsp;&nbsp; <a th:href="@{/InsertVehicle(local=${park.ParkingSpaces_local})}">停车</a></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

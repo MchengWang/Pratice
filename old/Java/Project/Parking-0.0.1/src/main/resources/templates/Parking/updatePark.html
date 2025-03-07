@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/css/layui.css">
+  <script src="/js/layui.js"></script>
+</head>
+<body>
+<form class="layui-form" action="/updParking" method="post">
+  <div class="layui-form-item">
+    <label class="layui-form-label">序号</label>
+    <div class="layui-input-block">
+      <input type="text" name="id" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input" readonly="readonly" th:value="${once.id}">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">车位类型</label>
+    <div class="layui-input-block">
+      <select name="type" lay-verify="required" th:value="${once.parkingSpaces_type}">
+        <option value="小型车位">小型车位</option>
+        <option value="中型车位">中型车位</option>
+        <option value="大型车位">大型车位</option>
+      </select>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">车位状态</label>
+    <div class="layui-input-block">
+      <select name="state" lay-verify="required" th:value="${once.parkingSpaces_state}">
+        <option value="未停车">未停车</option>
+        <option value="已停车">已停车</option>
+        <option value="整改中">整改中</option>
+      </select>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">车位位置</label>
+    <div class="layui-input-block">
+      <input type="text" name="local" required  lay-verify="required"  autocomplete="off" class="layui-input" th:value="${once.parkingSpaces_local}">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+</body>
+</html>

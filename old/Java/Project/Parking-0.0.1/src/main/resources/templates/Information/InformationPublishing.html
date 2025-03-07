@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="/css/layui.css">
+  <script src="/js/layui.js"></script>
+  <style>
+    form{
+      margin-top: 20px;
+    }
+  </style>
+
+  <script>
+    var values = [${message}]; // 获取后台传递过来的信息，用于提示用户是否添加成功
+    if(values !== null){
+      alert(values);
+    }
+  </script>
+</head>
+<body>
+<form class="layui-form" action="/insertMessage" method="post">
+  <div class="layui-form-item">
+    <label class="layui-form-label">输入框</label>
+    <div class="layui-input-block">
+      <input type="text" name="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">选择框</label>
+    <div class="layui-input-block">
+      <select name="type" lay-verify="required" id="select">
+        <option value="费用">费用</option>
+        <option value="整改">整改</option>
+        <option value="维修">维修</option>
+        <option value="停用">停用</option>
+        <option value="扩建">扩建</option>
+      </select>
+    </div>
+  </div>
+  <div class="layui-form-item layui-form-text">
+    <label class="layui-form-label">文本域</label>
+    <div class="layui-input-block">
+      <textarea name="content" placeholder="请输入内容" class="layui-textarea"></textarea>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,76 @@
+use dh;
+
+create table user( -- 用户
+    id int(0) primary key auto_increment , -- 编号
+    username varchar(16)  not null , -- 账号
+    password varchar(32)  not null , -- 密码
+    role int(0) default 1 check (role in (0 , 1 , 2)) -- 权限 0-管理员 1-小区用户 2-访客
+) ;
+
+-- truncate table user;
+
+insert into user values (1, 'admin', 'admin', 0);
+
+create table announcement( -- 公告
+    id int primary key auto_increment , -- 编号
+    title varchar(16) not null , -- 标题
+    type varchar(16) , -- 类型
+    content text , -- 文本内容
+    creTime date , -- 创建时间
+    updTIme date -- 修改时间
+);
+
+# drop table announcement
+
+# ALTER TABLE announcement MODIFY updTIme timestamp;
+# ALTER TABLE announcement MODIFY creTime timestamp;
+
+# insert into announcement (title, type, content, creTime, updTIme) values()
+# select* from announcement
+# truncate table announcement
+
+create table vehicle( -- 车辆信息
+    id int primary key auto_increment , -- 编号
+    licensePlate varchar(16) not null unique , -- 车牌号
+    local varchar(16) unique , -- 车位位置
+    illustrate text , -- 车辆说明
+    time timestamp -- 时间
+);
+
+# insert into vehicle (licensePlate, local, illustrate, time) values ();
+
+# drop table vehicle;
+
+create table ParkingSpaces( -- 车位
+    id int primary key auto_increment , -- 车位编号
+    ParkingSpaces_type varchar(16) , -- 车位类型
+    ParkingSpaces_state varchar(16) , -- 车位状态
+    ParkingSpaces_local varchar(16) -- 车辆位置
+);
+
+# truncate table ParkingSpaces
+
+create table customer(
+    id int primary key auto_increment , -- 编号
+    name varchar(16) unique , -- 真实姓名
+    tel varchar(16) , -- 电话
+    licensePlate varchar(32) , -- 车牌号
+    extra varchar(100) -- 备注
+);
+# truncate table customer;
+# drop table customer;
+
+# 关于小区停车位的收费标准
+# 非本小区的用户
+#     小型车位收费规则：按照2小时免费，2-6小时按照每3元/小时，6-10小时按照每小时6元/小时，每4小时停车费增加3元/小时，超过22小时将按照20元/小时计算费用。
+#     中型车位收费规则：按照2小时免费，2-6小时按照每5元/小时，6-10小时按照每小时10元/小时，每4小时停车费增加5元/小时，超过22小时将按照30元/小时计算费用。
+#     大型车位收费规则：按照1小时免费，1-5小时按照每15元/小时，5-9小时按照每小时25元/小时，每4小时停车费增加10元/小时，超过21小时将按照55元/小时计算费用。
+# 本小区用户
+#        小型车位：免费
+
+# 关于小区车位扩建
+# 最近由于小区住户增加，原预设车位数量不够，现在小区北边，扩建新的车位，期待您们的加入。
+
+create trigger Vehicle_ParkingSpaces after update on parkingspaces for each row
+    delete from vehicle where vehicle.licensePlate; -- 添加触发器
+drop trigger Vehicle_ParkingSpaces -- 删除触发器
