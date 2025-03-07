@@ -1,0 +1,28 @@
+[submodule "Orange/vendor/spdlog"]
+	path = Orange/vendor/spdlog
+	url = ../../gabime/spdlog.git
+	branch = v1.x
+[submodule "Orange/vendor/GLFW"]
+	path = Orange/vendor/GLFW
+	url = ../../TheCherno/glfw.git
+	branch = master
+[submodule "Orange/vendor/imgui"]
+	path = Orange/vendor/imgui
+	url = ../../TheCherno/imgui.git
+	branch = docking
+[submodule "Orange/vendor/glm"]
+	path = Orange/vendor/glm
+	url = ../../g-truc/glm.git
+	branch = master
+[submodule "Orange/vendor/yaml-cpp"]
+	path = Orange/vendor/yaml-cpp
+	url = https://github.com/TheCherno/yaml-cpp
+[submodule "Orange/vendor/ImGuizmo"]
+	path = Orange/vendor/ImGuizmo
+	url = https://github.com/thecherno/imguizmo
+[submodule "Orange/vendor/Box2D"]
+	path = Orange/vendor/Box2D
+	url = https://github.com/TheCherno/Box2D
+[submodule "Orange/vendor/msdf-atlas-gen"]
+	path = Orange/vendor/msdf-atlas-gen
+	url = https://github.com/TheCherno/msdf-atlas-gen

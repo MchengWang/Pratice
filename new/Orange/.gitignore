@@ -1,0 +1,22 @@
+# 二进制
+**/bin/
+!vendor/premake/bin/
+bin-obj/
+Intermediates/
+
+# Orange 系统文件
+*.log
+
+# VS 文件和文件夹
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
+**.csproj
+
+# 文件夹
+Orange/vendor/VulkanSDK
+Orangefruit/assets/cache
+scripts/__pycache__
+2D
