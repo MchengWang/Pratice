@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--版本管理
+        工程版本
+            SNAPSHOT（快照版本）
+                项目开发过程中临时输出的版本，称为快照版本
+                快照版本会随着开发的进展不断更新
+            RELEASE（发布版本）
+                项目开发到进入阶段里程碑后，像团队外部发布较为稳定的版本，这种版本所对应的构建文件是稳定的，即便进行功能后续开发，
+                耶努会改变当前版本内容，这种版本成为发布版本
+        发布版本
+            alpha版
+            beta版
+            纯数字版-->
+    <groupId>com.itheima</groupId>
+    <artifactId>maven_01_parent</artifactId>
+    <version>1.0-RELEASE</version>
+    <packaging>pom</packaging>
+    <!--聚合：将多个模块组织成一个整体，同时进行项目构建的过程成为聚合
+        聚合工程：通常是一个不具有业务能力的“空”工程，有且仅有一个pom文件
+        作用：使用聚合工程可以将国歌工程编组，通过对聚合工程进行构建，实现对所包含的的模块进行同步构建
+            当工程中某个模块发生更新（变更）时，必须保障工程中与已更新模块关联的模块同步更新，此时可以使用聚合工程来解决批量模块同步构建的问题
+        聚合工程开发步骤
+            1、创建Maven模块，设置打包类型为pom
+                注意事项：每个maven工程都有对应的打包方式，默认为jar，web工程打包方式为war
+            2、设置当前聚合工程所包含的子模块名称
+                注意事项：聚合工程所包含的模块再进行构建时会根据模块间的依赖关系设置构建顺序，与聚合工程中模块的配置书写位置无关，参与聚合的工程无法向上
+                        感知是否参加聚合，只能向下配置哪些模块参与本工程的聚合-->
+
+    <!--设置管理的模块名称-->
+    <modules>
+        <module>../maven_02_ssm</module>
+        <module>../maven_03_pojo</module>
+        <module>../maven_04_dao</module>
+    </modules>
+
+    <!--继承
+        概念：继承描述的是两个工程间的关系，与java中的继承相似，子工程可以继承父工程中的配置信息，常见于依赖关系的继承
+        作用：简化配置，减少版本冲突
+        继承关系步骤：
+            1、创建Maven模块，这只打包类型为pom
+                注意事项：建议父工程打包方式设置为pom
+            2、在父工程的pom文件中配置依赖关系（子工程将沿用父工程中的依赖关系）
+            3、配置子工程中可选的依赖关系
+            4、在子工程中配置当前工程所继承的父工程
+            5、在子工程中配置使用父工程中可选依赖的坐标
+                注意事项：子工程中使用父工程中的可选依赖时，仅需要提供群组id和项目id，无需提供版本，版本由父工程统一提供，避免版本冲突
+                    子工程中还可以定义父工程中没有定义的依赖关系-->
+
+    <!--聚合与继承的区别
+        作用：
+            聚合用于快速构建项目
+            继承用于快速配置
+        相同点：
+            聚合与继承的pom.xml文件打包方式均为pom，可以将两种关系制作到同一个pom文件中
+            聚合与继承均属于设计性模块，并无实际的模块内容
+        不同点：
+            聚合是在当前模块中配置关系，聚合可以感知到参与聚合的模块有哪些
+            及城市在子模块中配置关系，父模块无法感知那些子模块继承了自己-->
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.6</version>
+        </dependency>
+
+        <!--资源文件引用属性
+                1、定义属性
+                2、配置文件中引用属性
+                3、开启资源文件目录加载属性的过滤器
+                4、配置maven打war包时，忽略web.xml检查
+            其他属性（了解）
+                1、自定义属性（常用）
+                2、内置属性
+                3、Setting属性
+                4、Java系统属性
+                5、环境变量属性-->
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${mybatis-spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.47</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.16</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+    </dependencies>
+
+    <!--定义属性-->
+    <properties>
+        <spring.version>5.2.10.RELEASE</spring.version>
+        <junit.version>4.12</junit.version>
+        <mybatis-spring.version>1.3.0</mybatis-spring.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!--<jdbc.url>jdbc:mysql://127.0.0.1:3306/ssm_db</jdbc.url>-->
+    </properties>
+
+    <!--定义依赖管理-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--多环境开发
+        maven提供配置多种环境的设定，帮助开发者使用过程中快速切换环境
+        步骤
+            1、定义多环境
+            2、使用多环境（构建过程）
+                mvn 指令 -p 环境定义id
+                eg: mvn install -P pro_env-->
+    <!--配置多环境-->
+    <profiles>
+        <!--定义具体的环境：开发环境-->
+        <profile>
+            <!--定义环境对应的唯一名称-->
+            <id>env_dep</id>
+            <!--定义环境中专用的属性值-->
+            <properties>
+                <jdbc.url>jdbc:mysql://127.1.1.1:3306/ssm_db</jdbc.url>
+            </properties>
+            <!--设定是否为默认启动环境-->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <!--定义具体的环境：生产环境-->
+        <profile>
+            <id>env_pro</id>
+            <properties>
+                <jdbc.url>jdbc:mysql://127.2.2.2:3306/ssm_db</jdbc.url>
+            </properties>
+        </profile>
+        <!--测试环境-->
+        <profile>
+            <id>env_test</id>
+            <properties>
+                <jdbc.url>jdbc:mysql://127.3.3.3:3306/ssm_db</jdbc.url>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <resources>
+            <!--设置资源目录，并设置能够解析${}-->
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <!--跳过测试
+                    应用场景：
+                        功能更新中并且没有开发完毕
+                        快速打包
+                    跳过测试maven指令
+                        mvn 指令 -D skipTests
+                        eg： mvn install -D skipTests
+                        注意事项：执行的项目构建指令必须包含测试生命周期，否则无效果。例如执行compile生命周期，不经过test生命周期
+                    细粒度控制跳过测试-->
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12.4</version>
+                <configuration>
+                    <skipTests>false</skipTests> <!--设置跳过测试-->
+<!--                    <includes> &lt;!&ndash;包含指定的测试用例&ndash;&gt;-->
+<!--                        <include></include>-->
+<!--                    </includes>-->
+                    <!--排除掉不参与测试的内容-->
+                    <excludes>
+                        <exclude>**/BookServiceTest.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--私服简介
+        私服是一台独立的服务器，用于解决团队内部的资源共享与资源同步问题
+        Nexus
+            Sonatype公司的一款maven私服产品
+            下载地址：
+        私服安装与启动
+            启动服务器（命令行启动）
+            nexus.exe /run nexus
+            访问服务器（默认端口：8081）
+            http:/localhost:8081
+            修改基础配置信息
+                安装路径下etc目录中nexus-default.properties文件保存nexus基础配置信息，例如默认访问端口
+            修改服务器运行配置
+                安装路径下bin目录中nexus.vmoptions文件保存有nexus服务器启动对应的配置信息，例如默认占用内存空间-->
+
+    <!--配置当前工程保存在私服中的具体位置-->
+    <distributionManagement>
+        <repository>
+            <id>itheima-release</id>
+            <url>http://localhost:8081/repository/itheima-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>itheima-snapshot</id>
+            <url>http://localhost:8081/repository/itheima-snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+</project>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--1、导入spring的坐标spring-context，对应版本是5.2.10.RELEASE-->
+
+    <!--2、配置bean-->
+    <!--bean标签表示配置bean
+    id属性标识给bean起名字
+    class属性表示给bean定义数据类型
+    name 属性用于定义bean对象的别名，可定义多个使用逗号，分号和空格分割；
+    scope 属性用于定义bean的作用范围 singleton 单例（默认）
+                                 prototype 非单例-->
+    <bean id="bookDao" name="dao book,ddd" class="com.itheima.Dao.impl.BookDaoImpl" scope="prototype"/>
+
+    <bean id="bookService" class="com.itheima.Service.impl.BookServiceImpl">
+        <!--7、配置service与dao的关系-->
+        <!--property 标签表示配置当前bean的属性
+        name 属性表示配置拿一个具体的属性
+        ref属性表示参照哪一个bean-->
+        <property name="bookDao" ref="bookDao"/>
+    </bean>
+</beans>

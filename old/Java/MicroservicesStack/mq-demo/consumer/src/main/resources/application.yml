@@ -1,0 +1,13 @@
+logging:
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+spring:
+  rabbitmq:
+    host: 192.168.120.128 # rabbitMQ的ip地址
+    port: 5672 # 端口
+    username: GoodMe # 用户名
+    password: 27341906 # 密码
+    virtual-host: / # 虚拟主机
+    listener:
+      direct:
+        prefetch: 1

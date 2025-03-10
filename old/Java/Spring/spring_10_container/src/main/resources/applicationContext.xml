@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+        bean标签中的属性作用
+            id bean的id
+            name bean的别名
+            class bean的类型，静态工厂类，FactoryBean类
+            scope 控制bean的实例数量
+            init-method 生命周期初始化方法
+            destroy-method 生命周期销毁方法
+            autowire 自动装配类型
+            factory-method bean工厂方法，应用于静态工厂或实例工厂
+            factory-bean 实例化工厂bean
+            lazy-init 控制bean延迟加载
+    -->
+    <bean id="bookDao" class="com.itheima.dao.impl.BookDaoImpl"/>
+</beans>
